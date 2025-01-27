@@ -12,14 +12,16 @@ const useLogout = () => {
         credentials: "include",
       });
 
-      const data = await res.json();
-
       if (!res.ok) {
-        throw new Error(data.message || "Error during logout");
+        throw new Error("Logout failed");
       }
 
-      // Clear user from state
+      // Remove user data from localStorage
+      localStorage.removeItem("user");
+
+      // Clear user data from Recoil state
       setUser(null);
+
       showSuccessToast("Logged out successfully");
     } catch (error) {
       showErrorToast(error.message);

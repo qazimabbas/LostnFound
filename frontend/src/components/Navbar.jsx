@@ -6,42 +6,18 @@ import { authAtom } from "../atoms/authAtom";
 import { userAtom } from "../atoms/userAtom";
 import useLogout from "../hooks/useLogout";
 import { showSuccessToast, showErrorToast } from "./CustomToast";
-import Logo from "../assets/Logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const setAuth = useSetRecoilState(authAtom);
   const user = useRecoilValue(userAtom);
-  const setUser = useSetRecoilState(userAtom);
-
-  const handleLogout = async () => {
-    try {
-      const res = await fetch("/api/users/logout", {
-        method: "POST",
-        credentials: "include",
-      });
-
-      if (!res.ok) {
-        throw new Error("Logout failed");
-      }
-
-      // Remove user data from localStorage
-      localStorage.removeItem("user");
-
-      // Clear user data from Recoil state
-      setUser(null);
-
-      showSuccessToast("Logged out successfully");
-    } catch (error) {
-      showErrorToast(error.message);
-    }
-  };
+  const logout = useLogout();
 
   return (
     <nav className="navbar relative flex justify-between items-center p-4 bg-primary-light dark:bg-background-dark text-white border-b border-gray-200 dark:border-gray-800 z-50">
       <Link to="/" className="flex items-center gap-3 relative z-20">
         <img
-          src={Logo}
+          src={"./src/assets/Logo.png"}
           alt="Lost & Found Logo"
           className="w-10 h-10 md:w-16 md:h-16 object-contain "
         />
@@ -66,7 +42,7 @@ const Navbar = () => {
                   />
                 </Link>
                 <button
-                  onClick={handleLogout}
+                  onClick={logout}
                   className="hover:text-gray-300 transition-colors duration-200"
                   title="Logout"
                 >
@@ -145,7 +121,7 @@ const Navbar = () => {
                     />
                   </Link>
                   <button
-                    onClick={handleLogout}
+                    onClick={logout}
                     className="hover:text-gray-300 transition-colors duration-200 flex items-center gap-2"
                   >
                     <span>Logout</span>
