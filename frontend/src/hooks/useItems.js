@@ -23,18 +23,18 @@ const useItems = (
         const response = await fetch(
           `${import.meta.env.VITE_API_URL}/items/all-items`,
           {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              type: activeTab,
-              category: selectedCategory,
-              search: searchTerm,
-              dateRange: dateRange !== "all" ? dateRange : undefined,
-              location: locationFilter.trim() || undefined,
-            }),
-            credentials: "include",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: activeTab,
+            category: selectedCategory,
+            search: searchTerm,
+            dateRange: dateRange !== "all" ? dateRange : undefined,
+            location: locationFilter.trim() || undefined,
+          }),
+          credentials: "include",
           }
         );
 

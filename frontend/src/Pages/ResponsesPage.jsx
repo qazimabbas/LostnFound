@@ -514,7 +514,7 @@ const ResponsesPage = () => {
           const response = await fetch(
             `${import.meta.env.VITE_API_URL}/responses/${responseId}`,
             {
-              method: "DELETE",
+            method: "DELETE",
             }
           );
 
@@ -581,11 +581,11 @@ const ResponsesPage = () => {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/responses/${responseId}/status`,
         {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ status }),
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status }),
         }
       );
 

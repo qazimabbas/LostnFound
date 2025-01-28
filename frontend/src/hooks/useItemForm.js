@@ -68,15 +68,15 @@ const useItemForm = (onSuccess) => {
 
     try {
       const url = isEdit
-        ? `${import.meta.env.VITE_API_URL}/items/update-item/${itemId}`
-        : `${import.meta.env.VITE_API_URL}/items/list`;
+        ? `/api/items/update-item/${itemId}`
+        : "/api/items/list";
 
       const response = await fetch(url, {
         method: isEdit ? "PUT" : "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        credentials: "include",
         body: JSON.stringify(formData),
       });
 

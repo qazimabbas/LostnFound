@@ -29,17 +29,14 @@ const useListItem = () => {
         images: base64Images,
       };
 
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/items/list`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(itemData),
-          credentials: "include",
-        }
-      );
+      const response = await fetch("/api/items/list", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(itemData),
+        credentials: "include",
+      });
 
       if (!response.ok) {
         throw new Error("Failed to create listing");
