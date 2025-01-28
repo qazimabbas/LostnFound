@@ -511,9 +511,12 @@ const ResponsesPage = () => {
 
         try {
           // Make API call in background without loading state
-          const response = await fetch(`/api/responses/${responseId}`, {
-            method: "DELETE",
-          });
+          const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/responses/${responseId}`,
+            {
+              method: "DELETE",
+            }
+          );
 
           if (!response.ok) {
             throw new Error("Failed to delete response");
@@ -534,9 +537,9 @@ const ResponsesPage = () => {
       setError(null);
 
       const [sentRes, receivedRes, claimsRes] = await Promise.all([
-        fetch("/api/responses/sent"),
-        fetch("/api/responses/received"),
-        fetch("/api/responses/claims"),
+        fetch(`${import.meta.env.VITE_API_URL}/responses/sent`),
+        fetch(`${import.meta.env.VITE_API_URL}/responses/received`),
+        fetch(`${import.meta.env.VITE_API_URL}/responses/claims`),
       ]);
 
       if (!sentRes.ok || !receivedRes.ok || !claimsRes.ok) {
@@ -575,13 +578,16 @@ const ResponsesPage = () => {
 
   const handleStatusUpdate = async (responseId, status) => {
     try {
-      const response = await fetch(`/api/responses/${responseId}/status`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ status }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/responses/${responseId}/status`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to update status");

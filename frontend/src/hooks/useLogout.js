@@ -7,7 +7,7 @@ const useLogout = () => {
 
   const logout = async () => {
     try {
-      const res = await fetch("/api/users/logout", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/users/logout`, {
         method: "POST",
         credentials: "include",
       });

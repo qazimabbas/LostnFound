@@ -47,7 +47,9 @@ const MyListingsPage = () => {
   useEffect(() => {
     const fetchUserListings = async () => {
       try {
-        const response = await fetch("/api/items/my-items");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/items/my-items`
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch listings");

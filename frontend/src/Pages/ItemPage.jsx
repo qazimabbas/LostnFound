@@ -39,7 +39,12 @@ const ItemPage = () => {
     const fetchItem = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/api/items/item/${id}`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/items/item/${id}`,
+          {
+            credentials: "include",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch item details");
@@ -105,16 +110,20 @@ const ItemPage = () => {
 
     try {
       setIsSubmitting(true);
-      const response = await fetch("/api/responses", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          itemId: id,
-          message: responseMessage,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/responses`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            itemId: id,
+            message: responseMessage,
+          }),
+        }
+      );
 
       const data = await response.json();
 

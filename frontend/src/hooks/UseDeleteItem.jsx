@@ -13,9 +13,13 @@ const UseDeleteItem = () => {
   const deleteItem = async (itemId, onSuccess) => {
     try {
       setIsDeleting(true);
-      const response = await fetch(`/api/items/delete-item/${itemId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/items/delete-item/${itemId}`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();

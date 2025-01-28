@@ -67,7 +67,7 @@ const UpdatePage = () => {
 
     setIsLoading(true);
     try {
-      const res = await fetch("/api/users/update", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/users/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

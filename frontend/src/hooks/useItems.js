@@ -20,20 +20,23 @@ const useItems = (
         // Only send non-empty search queries
         const searchTerm = searchQuery.trim() || undefined;
 
-        const response = await fetch("/api/items/all-items", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            type: activeTab,
-            category: selectedCategory,
-            search: searchTerm,
-            dateRange: dateRange !== "all" ? dateRange : undefined,
-            location: locationFilter.trim() || undefined,
-          }),
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/items/all-items`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              type: activeTab,
+              category: selectedCategory,
+              search: searchTerm,
+              dateRange: dateRange !== "all" ? dateRange : undefined,
+              location: locationFilter.trim() || undefined,
+            }),
+            credentials: "include",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch items");
