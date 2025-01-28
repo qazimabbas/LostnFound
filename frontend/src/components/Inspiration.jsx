@@ -35,11 +35,11 @@ const Inspiration = () => {
           </h2>
         </div>
         <p className="text-center text-lg md:text-xl text-gray-700 dark:text-gray-300 mt-3 max-w-[95%] md:max-w-[90%]">
-        Losing my 3000 PKR phone charger in the university library and 
-        being denied access to CCTV footage left me frustrated. 
-        That experience inspired me to create a lost-and-found listing website,
-         a solution to help students easily report and 
-        recover misplaced items, turning a personal inconvenience into a project with a meaningful purpose.
+          Losing my 3000 PKR phone charger in the university library and being
+          denied access to CCTV footage left me frustrated. That experience
+          inspired me to create a lost-and-found listing website, a solution to
+          help students easily report and recover misplaced items, turning a
+          personal inconvenience into a project with a meaningful purpose.
         </p>
         <Link
           to="/auth"
@@ -53,7 +53,7 @@ const Inspiration = () => {
       <div className="flex-1 md:flex-[0.4] flex items-center justify-center mt-8 md:mt-0">
         <div className="relative w-[90%] md:w-[95%] max-w-[500px]">
           <img
-            src={`./src/assets/${
+            src={`/${
               isDark ? "Inspiration.svg" : "developer_outline.svg"
             }`}
             alt="Developer Illustration"

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const socials = [
-  "./src/assets/instagram.svg",
-  "./src/assets/linkedin.svg",
-  "./src/assets/github.svg",
+  "/instagram.svg",
+  "/linkedin.svg",
+  "/github.svg",
 ];
 
 const Footer = () => {

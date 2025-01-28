@@ -4,18 +4,18 @@ import { useSetRecoilState } from "recoil";
 import { authAtom } from "../atoms/authAtom";
 const card = [
   {
-    pic: "./src/assets/login-1.svg",
+    pic: "/login-1.svg",
     title: "Create an account",
     description: "Initially, you need to create an account to get started.",
   },
   {
-    pic: "./src/assets/list-item.svg",
+    pic: "/list-item.svg",
     title: "List the item",
     description:
       "List your lost item on the platform, providing a description and a picture of the item.",
   },
   {
-    pic: "./src/assets/notification.svg",
+    pic: "/notification.svg",
     title: "Get notifications",
     description:
       "You will receive notifications when someone finds your lost item.",

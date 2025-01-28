@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ItemCard from "../components/ItemCard";
 import ItemForm from "../components/ItemForm";
 import useItemForm from "../hooks/useItemForm";
 import UseDeleteItem from "../hooks/UseDeleteItem.jsx";
-import toast from "react-hot-toast";
 import AddItemButton from "../components/AddItemButton";
 
 const MyListingsPage = () => {

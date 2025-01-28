@@ -13,7 +13,7 @@ const Hero = () => {
       </div>
       <div className="flex-1 flex items-center justify-center">
         <img
-          src="./src/assets/lost-2.svg"
+          src="/lost-2.svg"
           alt="ILostItIcon"
           className="w-[90%] md:w-[80%] max-w-[500px] dark:filter dark:brightness-90 transition-transform duration-300 hover:scale-110 cursor-pointer"
         />

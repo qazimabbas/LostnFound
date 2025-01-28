@@ -30,12 +30,12 @@ const ItemCard = ({
       <div className="h-[70%] w-full relative bg-gray-100 dark:bg-gray-700 rounded-t-lg overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src={item.images?.[0] || `./src/assets/not_available.jpg`}
+            src={item.images?.[0] || `/not_available.jpg`}
             alt={item.title}
             className="w-full h-full object-cover"
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = `./src/assets/not_available.jpg`;
+              e.target.src = `/not_available.jpg`;
             }}
           />
         </div>

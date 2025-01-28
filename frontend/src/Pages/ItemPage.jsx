@@ -11,7 +11,7 @@ import {
   FiTrash2,
   FiX,
 } from "react-icons/fi";
-import notAvailableImage from "../assets/not_available.jpg";
+import notAvailableImage from "/not_available.jpg";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "../atoms/userAtom";
 import ItemForm from "../components/ItemForm";
@@ -46,11 +46,11 @@ const ItemPage = () => {
         }
 
         const data = await response.json();
-        if (!data) {
-          return <div>Loading...</div>;
+        if (!data || !data.data) {
+          throw new Error("Invalid response format");
         }
 
-        const item = data.item;
+        const item = data.data.item;
         setItem(item);
       } catch (err) {
         setError(err.message);

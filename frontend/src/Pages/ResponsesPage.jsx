@@ -258,7 +258,7 @@ const ResponseCard = ({ data, type, onStatusUpdate, onDelete }) => {
           <div className="flex-shrink-0 w-full sm:w-auto flex justify-center sm:block">
             <div className="relative group-hover:scale-105 transition-transform duration-200">
               <img
-                src={data.item?.images?.[0] || "./src/assets/not_available.jpg"}
+                src={data.item?.images?.[0] || "/not_available.jpg"}
                 alt={data.item?.title || data.itemTitle}
                 className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-lg bg-gray-100 dark:bg-gray-700 ring-1 ring-gray-200 dark:ring-gray-600"
               />

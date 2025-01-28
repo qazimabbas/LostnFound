@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav className="navbar relative flex justify-between items-center p-4 bg-primary-light dark:bg-background-dark text-white border-b border-gray-200 dark:border-gray-800 z-50">
       <Link to="/" className="flex items-center gap-3 relative z-20">
         <img
-          src={"./src/assets/Logo.png"}
+          src={"/logo.png"}
           alt="Lost & Found Logo"
           className="w-10 h-10 md:w-16 md:h-16 object-contain "
         />
